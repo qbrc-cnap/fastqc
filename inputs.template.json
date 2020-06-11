@@ -1,0 +1,8 @@
+{
+  "FastQCWorkflow.git_repo_url": "String",
+  "FastQCWorkflow.output_zip_name": "String",
+  "FastQCWorkflow.git_commit_hash": "String",
+  "FastQCWorkflow.r2_files": "Array[File]",
+  "FastQCWorkflow.r1_files": "Array[File]"
+}
+

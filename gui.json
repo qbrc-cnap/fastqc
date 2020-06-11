@@ -1,0 +1,46 @@
+{
+	"input_elements": [
+		{
+			"target": {
+				"target_ids": ["FastQCWorkflow.r1_files", "FastQCWorkflow.r2_files"],
+				"name": "input_files",
+				"handler": "input_mapping.py"
+			},
+			"display_element": {
+				"type": "file_chooser",
+                "regex_filter": ".*_R[1,2].fastq.gz",
+				"label": "Input files:",
+				"choose_multiple": true,
+				"description": "Choose input fastq-format files to analyze.  Files should end with \"_R1.fastq.gz\" or \"_R2.fastq.gz\".  Unpaired files will be ignored and NOT analyzed."
+			}	
+		},
+		{
+			"target":"FastQCWorkflow.output_zip_name",
+			"display_element": {
+				"type": "text",
+				"label": "Output zip-archive name:",
+				"description": "Name the output file.  Result will be a \"zip\" archive.  If you enter \"my_output\", then the results will be \"my_output.zip\"."
+			}
+		},
+		{
+			"target": "FastQCWorkflow.git_repo_url",
+			"display_element": {
+				"type": "dynamic_hidden",
+				"handler": "add_git_repo_url.py",
+				"context_args": {
+					"variable_name": "git_repo_url"
+				}
+			}
+		},
+		{
+			"target": "FastQCWorkflow.git_commit_hash",
+			"display_element": {
+				"type": "dynamic_hidden",
+				"handler": "add_git_hash.py",
+				"context_args": {
+					"variable_name": "git_commit_hash"
+				}
+			}
+		}
+	]
+}
