@@ -29,6 +29,10 @@ RUN cd /opt/software && \
   chmod +x /opt/software/FastQC/fastqc
 ENV PATH="/opt/software/FastQC:${PATH}"
 
+RUN cd /opt/software && \
+    wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.39.zip && \
+    unzip Trimmomatic-0.39.zip
+
 # Install multiqc:
 RUN pip3 install multiqc
 
